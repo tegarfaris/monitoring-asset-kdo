@@ -3,6 +3,7 @@ import { AppPropsWithLayout } from "../app/interface/dashboard.interface";
 import DashboardLayout from "../app/layout/dashboard-layout";
 import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../../themes/theme";
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: React.ReactNode) => page);
@@ -15,17 +16,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {Component.getLayout ? (
-        <ChakraProvider>
+      <ChakraProvider theme={theme}>
+        {Component.getLayout ? (
           <Component {...pageProps} />
-        </ChakraProvider>
-      ) : (
-        <ChakraProvider>
+        ) : (
           <DashboardLayout>
             <Component {...pageProps} />
           </DashboardLayout>
-        </ChakraProvider>
-      )}
+        )}
+      </ChakraProvider>
     </>
   );
 }
