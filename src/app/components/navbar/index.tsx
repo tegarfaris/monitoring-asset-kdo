@@ -1,13 +1,30 @@
-import { Button, Flex, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Button, Flex, Text } from "@chakra-ui/react";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/router";
+import React from "react";
 
-const Navbar:React.FC = () => {
+const Navbar: React.FC = () => {
+  const router = useRouter();
+  const logout = async () => {
+    deleteCookie("dataRegister");
+    await router.push("/auth");
+  };
+
   return (
-    <Flex justifyContent="space-between">
-      <Text color="white" fontWeight={600} fontSize="20px" p="20px" fontFamily="poppins">Monitoring Asset KDO</Text>
-      <Button>Logout</Button>
+    <Flex justifyContent="end" bg="white" p="20px">
+      <Button
+        variant="outlined"
+        onClick={logout}
+        fontWeight={600}
+        color="white"
+        bg="monika-primary.500"
+        _hover={{bg: "monika-primary.200", color: "monika-primary.500"}}
+        boxShadow="lg"
+      >
+        Log out
+      </Button>
     </Flex>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
