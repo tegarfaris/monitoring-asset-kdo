@@ -1,14 +1,18 @@
-import { Flex, Text } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
-import Navbar from '../../components/navbar'
+import { Flex, Text } from "@chakra-ui/react";
+import React, { ReactNode } from "react";
+import Navbar from "../../components/navbar";
+import Sidebar from "../../components/sidebar";
 
-const DashboardLayout: React.FC<{children: ReactNode}> = ({children}) => {
+const DashboardLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <Flex flexDir="column" px="150px" bg="black">
+    <Flex pos="relative" w="full" flexDir="column" minH="100vh" boxShadow="md">
       <Navbar />
-      <Text color="white" fontWeight={600}>asdasd</Text>
+      <Flex gap="10px">
+        <Sidebar />
+        {children}
+      </Flex>
     </Flex>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;

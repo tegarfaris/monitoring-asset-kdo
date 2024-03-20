@@ -47,21 +47,17 @@ const Register = () => {
 
     if (!handleError(e)) {
       // Set cookie
-      const cookieName = 'dataRegister';
+      const cookieName = "dataRegister";
       const cookieValue = JSON.stringify(value);
-  
+
       // Prepare cookie string
-      const cookieString = `${cookieName}=${encodeURIComponent(cookieValue)}; path=/`;
-  
+      const cookieString = `${cookieName}=${encodeURIComponent(
+        cookieValue
+      )}; path=/`;
+
       // Set cookie in document
       document.cookie = cookieString;
-      router.push("/")
-
-      console.log(JSON.stringify(value));
-      console.log("email: ", value.email);
-      console.log("username: ", value.username);
-      console.log("password: ", value.password);
-      console.log("phoneNumber: ", value.phoneNumber);
+      router.push("/dashboard/asset-kdo");
     }
   };
 
@@ -70,10 +66,10 @@ const Register = () => {
       flexDir="column"
       minW="500px"
       gap="10px"
-      border="1px solid grey"
-      boxShadow="10px 10px 5px 0px rgba(255,255,255,0.75)"
       p="50px"
       borderRadius="10px"
+      bg="rgba(0, 0, 0, .60)"
+      boxShadow="4px 5px 52px rgba(0, 0, 0, 0.7)"
     >
       <Text color="white" textAlign="center" fontSize="30px" fontWeight={600}>
         Monitoring KDO
@@ -126,12 +122,13 @@ const Register = () => {
           }
         />
         <Button
-        mt="20px"
+          mt="20px"
           w="full"
           type="submit"
-          bg="white"
-          color="black"
-          _hover={{ boxShadow: "rgba(255,255,255,0.9) 0px 0px 39px" }}
+          bg="monika-primary.500"
+          color="white"
+          fontWeight={600}
+          _hover={{ bg: "white", color: "monika-primary.500" }}
         >
           LOGIN
         </Button>

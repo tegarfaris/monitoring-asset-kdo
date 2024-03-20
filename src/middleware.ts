@@ -4,46 +4,32 @@ import type { NextRequest } from "next/server";
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   const cookies = request.cookies;
-//   console.log("COOKIES",cookies)
   const destination = request.nextUrl.pathname;
 
-  let credential;
-  let role;
+  let role = null;
 
-  if(request.cookies.get("dataRegister")?.value ){
-    credential = JSON.parse(request.cookies.get("dataRegister")?.value as string)
-    role= credential.role
+  const dataRegisterCookie = cookies.get("dataRegister");
+  if (dataRegisterCookie) {
+    const credential = JSON.parse(dataRegisterCookie.value);
+    role = credential.role;
   }
 
-
-  if (cookies.get("dataRegister")) {
-    // console.log("ada ga", destination);
-    // if(destination.startsWith("/dashboard") && role === "admin"){
-
-    //   return NextResponse.next()
-    // }else 
-    if(destination.startsWith("/") && role === "admin"){
-    //   console.log("client ke homepage")
-      return NextResponse.redirect(new URL("/", request.url))
-    } else if (destination.startsWith("/auth")) {
-    //   console.log("masuk ga");
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-    // else if(destination.startsWith("/") && role === "admin"){
-    //   return NextResponse.redirect(new URL("/dashboard", request.url))
-    // }
-
-  } else {
-    // console.log("unauthorized");
-    if (destination.startsWith("/auth")) {
-    //   console.log("lanjut a");
-      return NextResponse.next();
-    }
+  if (destination.startsWith("/dashboard/asset-kdo") && role === "admin") {
+    return NextResponse.next();
+  } else if (destination.startsWith("/auth") && role === "admin") {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  } else if (
+    !dataRegisterCookie &&
+    destination.startsWith("/dashboard/asset-kdo")
+  ) {
     return NextResponse.redirect(new URL("/auth/register", request.url));
+  } else if (!dataRegisterCookie && destination.startsWith("/auth/register")) {
+    // Default behavior if no conditions match
+    return NextResponse.next();
   }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/", "/auth/:path*"],
+  matcher: ["/", "/auth/:path*", "/dashboard/:path*"],
 };
