@@ -5,7 +5,6 @@ import ComingSoon from "@/monitoring/app/page-modules/coming-soon";
 
 const Dashboard = () => {
   const router = useRouter();
-console.log(router.query.menu)
   switch (router.query.menu) {
     case "asset-kdo":
       return <AssetKDO />;

@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const logout = async () => {
     deleteCookie("dataRegister");
-    await router.push("/auth");
+    await router.push("/auth/register");
   };
 
   return (

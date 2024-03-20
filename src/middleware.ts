@@ -23,7 +23,7 @@ export function middleware(request: NextRequest) {
     destination.startsWith("/dashboard/asset-kdo")
   ) {
     return NextResponse.redirect(new URL("/auth/register", request.url));
-  } else if (!dataRegisterCookie && destination.startsWith("/auth")) {
+  } else if (!dataRegisterCookie && destination.startsWith("/auth/register")) {
     // Default behavior if no conditions match
     return NextResponse.next();
   }

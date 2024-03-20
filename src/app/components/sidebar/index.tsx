@@ -27,16 +27,10 @@ const Sidebar = () => {
         fontSize="20px"
         p="20px"
         fontFamily="poppins"
-        textAlign="center"
+        textAlign="left"
       >
         Monitoring Asset KDO
       </Text>
-      <Divider
-        borderBottom="1px solid"
-        borderColor="monika-neutral.40"
-        w="220px"
-        mx="15px"
-      />
 
       <Flex pt="30px" px="10px">
         {MENU.map((item) => (

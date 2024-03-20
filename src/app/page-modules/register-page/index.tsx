@@ -58,12 +58,6 @@ const Register = () => {
       // Set cookie in document
       document.cookie = cookieString;
       router.push("/dashboard/asset-kdo");
-
-      console.log(JSON.stringify(value));
-      console.log("email: ", value.email);
-      console.log("username: ", value.username);
-      console.log("password: ", value.password);
-      console.log("phoneNumber: ", value.phoneNumber);
     }
   };
 
@@ -131,9 +125,10 @@ const Register = () => {
           mt="20px"
           w="full"
           type="submit"
-          bg="white"
-          color="black"
-          _hover={{ boxShadow: "rgba(255,255,255,0.9) 0px 0px 39px" }}
+          bg="monika-primary.500"
+          color="white"
+          fontWeight={600}
+          _hover={{ bg: "white", color: "monika-primary.500" }}
         >
           LOGIN
         </Button>
