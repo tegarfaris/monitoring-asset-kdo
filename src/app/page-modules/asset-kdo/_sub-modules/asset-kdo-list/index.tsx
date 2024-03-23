@@ -14,15 +14,16 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import BasicTable, { ITableColumns } from "../../components/basic-table";
-import DATA_KDO from "../../data/data-kdo.json";
-import usePagination from "../../hooks/function/usePagination";
-import { IAssetKDO } from "../../interface/asset-kdo.interface";
+import BasicTable, { ITableColumns } from "../../../../components/basic-table";
+import DATA_KDO from "../../../../data/data-kdo.json";
+import usePagination from "../../../../hooks/function/usePagination";
+import { IAssetKDO } from "../../../../interface/asset-kdo.interface";
 import { startCase } from "lodash";
-import { renderKDOStatus } from "../../helper/renderKDOStatus";
+import { renderKDOStatus } from "../../../../helper/renderKDOStatus";
 import { PiPlusCircle } from "react-icons/pi";
+import AssetKDOHeader from "../../_components/asset-kdo-header";
 
-const AssetKDO = () => {
+const AssetKDOList = () => {
   const [showingData, setShowingData] = React.useState<number>(DATA_KDO.length);
   const { pageSize, currentPage, renderPageNumber } = usePagination({
     currentCount: showingData || 0,
@@ -42,6 +43,11 @@ const AssetKDO = () => {
     setShowingData(getPaginatedData().length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showingData, getPaginatedData().length]);
+
+  const generateGoogleMapsURL = (latitude: string, longitude: string) => {
+    const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    return window.open(url, "_blank");
+  };
 
   const columns: ITableColumns[] = [
     {
@@ -75,6 +81,37 @@ const AssetKDO = () => {
       capitalize: true,
       render: (data: IAssetKDO) => {
         return <Text textAlign="center">{data.numberPlate}</Text>;
+      },
+    },
+    {
+      key: "coordinates",
+      title: "Koordinat GPS",
+      capitalize: true,
+      render: (data: IAssetKDO) => {
+        return (
+          <Flex justifyContent="center">
+            <Text
+              cursor="pointer"
+              onClick={() =>
+                generateGoogleMapsURL(
+                  String(data.coordinates.latitude),
+                  String(data.coordinates.longitude)
+                )
+              }
+              textAlign="center"
+              bg="monika-primary.500"
+              color="white"
+              w="fit-content"
+              px="10px"
+              py="10px"
+              borderRadius="5px"
+              _hover={{bg: "monika-primary.200", color: "monika-primary.500"}}
+              fontWeight={600}
+            >
+              Lacak Kendaraan
+            </Text>
+          </Flex>
+        );
       },
     },
     {
@@ -130,11 +167,20 @@ const AssetKDO = () => {
           <Text fontSize="24px" fontWeight={600} color="monika-primary.500">
             List Asset Kendaraan Dinas Operasional
           </Text>
-          <Button leftIcon={<PiPlusCircle size={20} />} fontWeight={600} bg="monika-primary.500" color="white">
+          <Button
+            leftIcon={<PiPlusCircle size={20} />}
+            fontWeight={600}
+            bg="monika-primary.500"
+            color="white"
+          >
             ADD KDO
           </Button>
         </Flex>
         <Divider />
+
+        {/* list asset kdo header */}
+        <AssetKDOHeader />
+
         <Flex flexDir="column" w="full" justifyContent="center" gap="20px">
           <BasicTable
             variant="simple"
@@ -149,4 +195,4 @@ const AssetKDO = () => {
   );
 };
 
-export default AssetKDO;
+export default AssetKDOList;

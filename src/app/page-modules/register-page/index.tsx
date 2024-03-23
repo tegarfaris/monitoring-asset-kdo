@@ -1,64 +1,86 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../../components/input-field";
 import { useRouter } from "next/navigation";
-import { Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Divider,
+  Flex,
+  Image,
+  Text,
+  Tooltip,
+} from "@chakra-ui/react";
+import { FormProvider, useForm } from "react-hook-form";
 
 const Register = () => {
   const router = useRouter();
-  const [value, setValue] = React.useState({
+  const [dataLogin, setDataLogin] = React.useState({
     email: "",
     username: "",
     password: "",
     phoneNumber: "",
-    role: "admin",
+    role: "",
   });
 
-  const [error, setError] = React.useState({
-    email: "",
-    username: "",
-    password: "",
-    phoneNumber: "",
+  // get location permition
+  const [isLocationApproved, setLocationApproved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const methods = useForm({
+    values: {
+      email: dataLogin.email,
+      username: dataLogin.username,
+      password: dataLogin.password,
+      phoneNumber: dataLogin.phoneNumber,
+      role: dataLogin.role,
+    },
   });
 
-  const handleError = (e: React.FormEvent<HTMLFormElement>) => {
-    if (value.password.length > 12) {
-      setError((prevValues) => ({
-        ...prevValues,
-        password: "password must be 12 characters",
-      }));
-      return true;
-    }
-    if (value.phoneNumber.length > 13) {
-      setError((prevValues) => ({
-        ...prevValues,
+  const {
+    watch,
+    formState: { errors },
+  } = methods;
 
-        phoneNumber: "password must be 13 characters",
-      }));
-      return true;
+  useEffect(() => {
+    if (isLocationApproved && "geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          setError(null);
+        },
+        function (error) {
+          setError(error.message);
+        }
+      );
     }
-
-    return false;
-  };
+  }, [error, isLocationApproved]);
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError({ ...error, password: "", phoneNumber: "" });
-    // const redirectUrl = value.role === "ad" ? "/" : "/dashboard";
+    const routeLogin =
+      watch("email") === "admin@admin.com" &&
+      watch("password") === "P@ssword123"
+        ? "/dashboard/admin/asset-kdo"
+        : "/dashboard/employee/form-pengajuan";
 
-    if (!handleError(e)) {
-      // Set cookie
-      const cookieName = "dataRegister";
-      const cookieValue = JSON.stringify(value);
+    const roleLogin =
+      watch("email") === "admin@admin.com" &&
+      watch("password") === "P@ssword123"
+        ? "admin"
+        : "employee";
 
-      // Prepare cookie string
-      const cookieString = `${cookieName}=${encodeURIComponent(
-        cookieValue
-      )}; path=/`;
+    const cookieName = "dataRegister";
+    const cookieValue = JSON.stringify({ ...dataLogin, role: roleLogin });
 
-      // Set cookie in document
-      document.cookie = cookieString;
-      router.push("/dashboard/asset-kdo");
-    }
+    // Prepare cookie string
+    const cookieString = `${cookieName}=${encodeURIComponent(
+      cookieValue
+    )}; path=/`;
+
+    // Set cookie in document
+    document.cookie = cookieString;
+
+    router.push(routeLogin);
   };
 
   return (
@@ -78,71 +100,116 @@ const Register = () => {
           textAlign="center"
           fontSize="30px"
           fontWeight={700}
+          pb="20px"
         >
           Monitoring KDO
         </Text>
 
-        <form action="submit" onSubmit={(e) => handleRegister(e)}>
-          <InputField
-            id="email"
-            name="email"
-            label="Email"
-            type="email"
-            placeholder="input email"
-            required
-            onChange={(e) =>
-              setValue({ ...value, email: e.currentTarget.value })
-            }
-          />
+        <FormProvider {...methods}>
+          <form action="submit" onSubmit={(e) => handleRegister(e)}>
+            <Flex flexDir="column" gap="10px">
+              <InputField
+                id="email"
+                name="email"
+                label="Email"
+                type="email"
+                placeholder="input email"
+                required
+                error={errors.username?.message}
+                onChange={(e) =>
+                  setDataLogin({ ...dataLogin, email: e.currentTarget.value })
+                }
+              />
 
-          <InputField
-            id="username"
-            name="username"
-            label="Username"
-            type="username"
-            placeholder="input username"
-            required
-            onChange={(e) =>
-              setValue({ ...value, username: e.currentTarget.value })
-            }
-          />
-          <InputField
-            id="password"
-            name="password"
-            label="Password"
-            type="password"
-            placeholder="input password"
-            errorMessage={error.password}
-            required
-            onChange={(e) =>
-              setValue({ ...value, password: e.currentTarget.value })
-            }
-          />
-          <InputField
-            id="phoneNumber"
-            name="phoneNumber"
-            label="Phone Number"
-            type="number"
-            placeholder="input Phone Number"
-            required
-            errorMessage={error.phoneNumber}
-            onChange={(e) =>
-              setValue({ ...value, phoneNumber: e.currentTarget.value })
-            }
-          />
-          <Divider borderColor="monika-primary.500" pt="10px" />
-          <Button
-            mt="20px"
-            w="full"
-            type="submit"
-            bg="monika-primary.500"
-            color="white"
-            fontWeight={600}
-            _hover={{ bg: "white", color: "monika-primary.500" }}
-          >
-            LOGIN
-          </Button>
-        </form>
+              <InputField
+                id="username"
+                name="username"
+                label="Username"
+                type="text"
+                placeholder="input username"
+                required
+                error={errors.username?.message}
+                onChange={(e) =>
+                  setDataLogin({
+                    ...dataLogin,
+                    username: e.currentTarget.value,
+                  })
+                }
+              />
+              <InputField
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                placeholder="input password"
+                error={errors.password?.message}
+                required
+                onChange={(e) =>
+                  setDataLogin({
+                    ...dataLogin,
+                    password: e.currentTarget.value,
+                  })
+                }
+              />
+              <InputField
+                id="phoneNumber"
+                name="phoneNumber"
+                label="Phone Number"
+                type="number"
+                placeholder="input Phone Number"
+                required
+                error={errors.phoneNumber?.message}
+                onChange={(e) =>
+                  setDataLogin({
+                    ...dataLogin,
+                    phoneNumber: e.currentTarget.value,
+                  })
+                }
+              />
+
+              <Checkbox
+                checked={isLocationApproved}
+                onChange={() => setLocationApproved(!isLocationApproved)}
+                size="sm"
+              >
+                Terms and Conditions
+              </Checkbox>
+            </Flex>
+            <Divider borderColor="monika-primary.500" pt="10px" />
+            <Tooltip
+              isDisabled={
+                !!isLocationApproved || error === "User denied Geolocation"
+                  ? false
+                  : true
+              }
+              hasArrow
+              label={
+                (!isLocationApproved &&
+                  "Anda Harus menekan kotak terms and condition terlebih dahulu") ||
+                (error === "User denied Geolocation" &&
+                  "Anda harus memilih Allow Every Time atau Izinkan Selalu pada pop up yang muncul untuk dapat masuk ke website ini")
+              }
+            >
+              <Button
+                mt="20px"
+                w="full"
+                type="submit"
+                bg="monika-primary.500"
+                color="white"
+                fontWeight={600}
+                _hover={{
+                  bg: "white",
+                  color: "monika-primary.500",
+                  border: "1px solid",
+                  borderColo: "monika-primary.500",
+                }}
+                isDisabled={!isLocationApproved || error !== null}
+              >
+                LOGIN
+              </Button>
+            </Tooltip>
+          </form>
+        </FormProvider>
       </Flex>
 
       {/* asset login */}
