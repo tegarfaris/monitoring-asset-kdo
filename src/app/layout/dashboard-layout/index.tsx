@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
@@ -9,7 +9,7 @@ const DashboardLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       <Navbar />
       <Flex gap="10px">
         <Sidebar />
-        {children}
+        <Box w="full" p="20px">{children}</Box>
       </Flex>
     </Flex>
   );

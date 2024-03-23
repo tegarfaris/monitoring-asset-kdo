@@ -1,7 +1,9 @@
 import React from "react";
-import { Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { IoMdList, IoMdListBox } from "react-icons/io";
 import { useRouter } from "next/router";
+import { IoCar, IoCarOutline } from "react-icons/io5";
+import { ERole } from "../../interface/auth.interface";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -9,17 +11,27 @@ const Sidebar = () => {
     {
       id: 1,
       label: "Asset KDO",
-      path: "/dashboard/asset-kdo",
+      path: "/dashboard/admin/asset-kdo",
       icon: <IoMdList size={20} />,
-      iconActive: <IoMdListBox />,
+      iconActive: <IoMdListBox size={20} />,
+      authorized: ERole.ADMIN,
+    },
+    {
+      id: 2,
+      label: "Pengajuan KDO",
+      path: "/dashboard/employee/form-pengajuan",
+      icon: <IoCarOutline size={20} />,
+      iconActive: <IoCar size={20} />,
+      authorized: ERole.EMPLOYEE,
     },
   ];
 
   const handleClickMenu = (path: string) => {
     router.push(path);
   };
+
   return (
-    <Flex flexDir="column" bg="white" mt="-80px" minH="100vh" w="240px">
+    <Flex flexDir="column" bg="white" mt="-80px" minH="100vh" w="250px">
       <Text
         pos="sticky"
         fontWeight={700}
@@ -36,6 +48,7 @@ const Sidebar = () => {
         {MENU.map((item) => (
           <Flex
             key={item.id}
+            display={router.query.role === item.authorized ? "flex" : "none"}
             gap="10px"
             w="full"
             color={router.asPath === item.path ? "white" : "monika-primary.500"}
@@ -50,7 +63,9 @@ const Sidebar = () => {
             cursor="pointer"
             onClick={() => handleClickMenu(item.path)}
           >
-            {router.asPath === item.path ? item.iconActive : item.icon}
+            <Box>
+              {router.asPath === item.path ? item.iconActive : item.icon}
+            </Box>
             <Text>{item.label}</Text>
           </Flex>
         ))}

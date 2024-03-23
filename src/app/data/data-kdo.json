@@ -1,198 +1,310 @@
 [
-    {
-      "id": "1",
-      "vehicleName": "Toyota Corolla",
-      "tipe": "mobil",
-      "numberPlate": "B 1234 ABC",
-      "status": "in-use"
-    },
-    {
-      "id": "2",
-      "vehicleName": "Honda Civic",
-      "tipe": "mobil",
-      "numberPlate": "D 5678 DEF",
-      "status": "parked"
-    },
-    {
-      "id": "3",
-      "vehicleName": "Yamaha NMAX",
-      "tipe": "motor",
-      "numberPlate": "L 9012 XYZ",
-      "status": "in-use"
-    },
-    {
-      "id": "4",
-      "vehicleName": "Suzuki Satria F150",
-      "tipe": "motor",
-      "numberPlate": "Z 3456 UVW",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "5",
-      "vehicleName": "Ford Mustang",
-      "tipe": "mobil",
-      "numberPlate": "E 7890 GHI",
-      "status": "in-use"
-    },
-    {
-      "id": "6",
-      "vehicleName": "Kawasaki Ninja 250",
-      "tipe": "motor",
-      "numberPlate": "Q 2345 JKL",
-      "status": "parked"
-    },
-    {
-      "id": "7",
-      "vehicleName": "Chevrolet Camaro",
-      "tipe": "mobil",
-      "numberPlate": "A 6789 MNO",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "8",
-      "vehicleName": "Honda Beat",
-      "tipe": "motor",
-      "numberPlate": "H 1234 PQR",
-      "status": "in-use"
-    },
-    {
-      "id": "9",
-      "vehicleName": "Tesla Model S",
-      "tipe": "mobil",
-      "numberPlate": "F 5678 STU",
-      "status": "parked"
-    },
-    {
-      "id": "10",
-      "vehicleName": "Harley Davidson Sportster",
-      "tipe": "motor",
-      "numberPlate": "W 9012 VWX",
-      "status": "in-use"
-    },
-    {
-      "id": "11",
-      "vehicleName": "BMW 3 Series",
-      "tipe": "mobil",
-      "numberPlate": "B 3456 YZA",
-      "status": "parked"
-    },
-    {
-      "id": "12",
-      "vehicleName": "Ducati Monster 821",
-      "tipe": "motor",
-      "numberPlate": "R 7890 BCW",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "13",
-      "vehicleName": "Audi A4",
-      "tipe": "mobil",
-      "numberPlate": "C 2345 DEF",
-      "status": "in-use"
-    },
-    {
-      "id": "14",
-      "vehicleName": "KTM Duke 390",
-      "tipe": "motor",
-      "numberPlate": "X 6789 GHI",
-      "status": "parked"
-    },
-    {
-      "id": "15",
-      "vehicleName": "Mercedes-Benz E-Class",
-      "tipe": "mobil",
-      "numberPlate": "Z 1234 JKL",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "16",
-      "vehicleName": "Piaggio Vespa LX",
-      "tipe": "motor",
-      "numberPlate": "O 5678 MNO",
-      "status": "in-use"
-    },
-    {
-      "id": "17",
-      "vehicleName": "Volkswagen Golf",
-      "tipe": "mobil",
-      "numberPlate": "P 9012 PQR",
-      "status": "parked"
-    },
-    {
-      "id": "18",
-      "vehicleName": "Aprilia RSV4",
-      "tipe": "motor",
-      "numberPlate": "Y 3456 STU",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "19",
-      "vehicleName": "Subaru Impreza",
-      "tipe": "mobil",
-      "numberPlate": "D 7890 VWX",
-      "status": "in-use"
-    },
-    {
-      "id": "20",
-      "vehicleName": "Triumph Bonneville T100",
-      "tipe": "motor",
-      "numberPlate": "A 2345 XYZ",
-      "status": "parked"
-    },
-    {
-      "id": "21",
-      "vehicleName": "Ferrari 488 GTB",
-      "tipe": "mobil",
-      "numberPlate": "F 6789 ABC",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "22",
-      "vehicleName": "Daihatsu Terios",
-      "tipe": "mobil",
-      "numberPlate": "E 1234 DEF",
-      "status": "in-use"
-    },
-    {
-      "id": "23",
-      "vehicleName": "Kawasaki Z900",
-      "tipe": "motor",
-      "numberPlate": "T 5678 GHI",
-      "status": "parked"
-    },
-    {
-      "id": "24",
-      "vehicleName": "Mitsubishi Pajero Sport",
-      "tipe": "mobil",
-      "numberPlate": "H 9012 JKL",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "25",
-      "vehicleName": "BMW S1000RR",
-      "tipe": "motor",
-      "numberPlate": "N 2345 MNO",
-      "status": "in-use"
-    },
-    {
-      "id": "26",
-      "vehicleName": "Jeep Wrangler",
-      "tipe": "mobil",
-      "numberPlate": "I 6789 PQR",
-      "status": "parked"
-    },
-    {
-      "id": "27",
-      "vehicleName": "Ducati Panigale V4",
-      "tipe": "motor",
-      "numberPlate": "V 1234 STU",
-      "status": "indicate to violation"
-    },
-    {
-      "id": "28",
-      "vehicleName": "Nissan X-Trail",
-      "tipe": "mobil",
-      "numberPlate": "J 5678 VWX",
-      "status": "in-use"
+  {
+    "id": "1",
+    "vehicleName": "Toyota Corolla",
+    "tipe": "mobil",
+    "numberPlate": "B 1234 ABC",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": -7.217884661667901,
+      "longitude":  107.90194069312462
     }
-]  
+  },
+  {
+    "id": "2",
+    "vehicleName": "Honda Civic",
+    "tipe": "mobil",
+    "numberPlate": "D 5678 DEF",
+    "status": "parked",
+    "coordinates": {
+      "latitude": -6.8648182,
+      "longitude": 107.5747238
+    }
+  },
+  {
+    "id": "3",
+    "vehicleName": "Yamaha NMAX",
+    "tipe": "motor",
+    "numberPlate": "L 9012 XYZ",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    }
+  },
+  {
+    "id": "4",
+    "vehicleName": "Suzuki Satria F150",
+    "tipe": "motor",
+    "numberPlate": "Z 3456 UVW",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": -33.8688,
+      "longitude": 151.2093
+    }
+  },
+  {
+    "id": "5",
+    "vehicleName": "Ford Mustang",
+    "tipe": "mobil",
+    "numberPlate": "E 7890 GHI",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  {
+    "id": "6",
+    "vehicleName": "Kawasaki Ninja 250",
+    "tipe": "motor",
+    "numberPlate": "Q 2345 JKL",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "7",
+    "vehicleName": "Chevrolet Camaro",
+    "tipe": "mobil",
+    "numberPlate": "A 6789 MNO",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    }
+  },
+  {
+    "id": "8",
+    "vehicleName": "Honda Beat",
+    "tipe": "motor",
+    "numberPlate": "H 1234 PQR",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    }
+  },
+  {
+    "id": "9",
+    "vehicleName": "Tesla Model S",
+    "tipe": "mobil",
+    "numberPlate": "F 5678 STU",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "10",
+    "vehicleName": "Harley Davidson Sportster",
+    "tipe": "motor",
+    "numberPlate": "W 9012 VWX",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  {
+    "id": "11",
+    "vehicleName": "BMW 3 Series",
+    "tipe": "mobil",
+    "numberPlate": "B 3456 YZA",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    }
+  },
+  {
+    "id": "12",
+    "vehicleName": "Ducati Monster 821",
+    "tipe": "motor",
+    "numberPlate": "R 7890 BCW",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": -33.8688,
+      "longitude": 151.2093
+    }
+  },
+  {
+    "id": "13",
+    "vehicleName": "Audi A4",
+    "tipe": "mobil",
+    "numberPlate": "C 2345 DEF",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    }
+  },
+  {
+    "id": "14",
+    "vehicleName": "KTM Duke 390",
+    "tipe": "motor",
+    "numberPlate": "X 6789 GHI",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "15",
+    "vehicleName": "Mercedes-Benz E-Class",
+    "tipe": "mobil",
+    "numberPlate": "Z 1234 JKL",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  {
+    "id": "16",
+    "vehicleName": "Piaggio Vespa LX",
+    "tipe": "motor",
+    "numberPlate": "O 5678 MNO",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    }
+  },
+  {
+    "id": "17",
+    "vehicleName": "Volkswagen Golf",
+    "tipe": "mobil",
+    "numberPlate": "P 9012 PQR",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 51.5074,
+      "longitude": -0.1278
+    }
+  },
+  {
+    "id": "18",
+    "vehicleName": "Aprilia RSV4",
+    "tipe": "motor",
+    "numberPlate": "Y 3456 STU",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": -33.8688,
+      "longitude": 151.2093
+    }
+  },
+  {
+    "id": "19",
+    "vehicleName": "Subaru Impreza",
+    "tipe": "mobil",
+    "numberPlate": "D 7890 VWX",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "20",
+    "vehicleName": "Triumph Bonneville T100",
+    "tipe": "motor",
+    "numberPlate": "A 2345 XYZ",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "21",
+    "vehicleName": "Ferrari 488 GTB",
+    "tipe": "mobil",
+    "numberPlate": "F 6789 ABC",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "22",
+    "vehicleName": "Daihatsu Terios",
+    "tipe": "mobil",
+    "numberPlate": "E 1234 DEF",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "23",
+    "vehicleName": "Kawasaki Z900",
+    "tipe": "motor",
+    "numberPlate": "T 5678 GHI",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "24",
+    "vehicleName": "Mitsubishi Pajero Sport",
+    "tipe": "mobil",
+    "numberPlate": "H 9012 JKL",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "25",
+    "vehicleName": "BMW S1000RR",
+    "tipe": "motor",
+    "numberPlate": "N 2345 MNO",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "26",
+    "vehicleName": "Jeep Wrangler",
+    "tipe": "mobil",
+    "numberPlate": "I 6789 PQR",
+    "status": "parked",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "27",
+    "vehicleName": "Ducati Panigale V4",
+    "tipe": "motor",
+    "numberPlate": "V 1234 STU",
+    "status": "indicate to violation",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": "28",
+    "vehicleName": "Nissan X-Trail",
+    "tipe": "mobil",
+    "numberPlate": "J 5678 VWX",
+    "status": "in-use",
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  }
+]
