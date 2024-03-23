@@ -10,4 +10,5 @@ export interface IAssetKDO {
     tipe: "mobil" | "motor";
     numberPlate: string;
     status: EStatusKDO;
+    coordinates: {latitude: number, longitude: number}
 }
