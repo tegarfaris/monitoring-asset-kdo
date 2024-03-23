@@ -36,8 +36,7 @@ const InputField: React.FC<InputFieldProps> = ({
         type={type}
         required={required}
         size="lg"
-        borderColor="white"
-        _hover={{ borderColor: "monika-primary.500" }}
+        borderColor="monika-primary.500"
       />
       <Text color="red">{errorMessage && `* ${errorMessage}`}</Text>
     </Flex>

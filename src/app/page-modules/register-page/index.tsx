@@ -1,7 +1,7 @@
 import React from "react";
 import InputField from "../../components/input-field";
 import { useRouter } from "next/navigation";
-import { Button, Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 
 const Register = () => {
   const router = useRouter();
@@ -62,77 +62,93 @@ const Register = () => {
   };
 
   return (
-    <Flex
-      flexDir="column"
-      minW="500px"
-      gap="10px"
-      p="50px"
-      borderRadius="10px"
-      bg="rgba(0, 0, 0, .60)"
-      boxShadow="4px 5px 52px rgba(0, 0, 0, 0.7)"
-    >
-      <Text color="white" textAlign="center" fontSize="30px" fontWeight={600}>
-        Monitoring KDO
-      </Text>
-      <Divider my="20px" />
-      <form action="submit" onSubmit={(e) => handleRegister(e)}>
-        <InputField
-          id="email"
-          name="email"
-          label="Email"
-          type="email"
-          placeholder="input email"
-          required
-          onChange={(e) => setValue({ ...value, email: e.currentTarget.value })}
-        />
-
-        <InputField
-          id="username"
-          name="username"
-          label="Username"
-          type="username"
-          placeholder="input username"
-          required
-          onChange={(e) =>
-            setValue({ ...value, username: e.currentTarget.value })
-          }
-        />
-        <InputField
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          placeholder="input password"
-          errorMessage={error.password}
-          required
-          onChange={(e) =>
-            setValue({ ...value, password: e.currentTarget.value })
-          }
-        />
-        <InputField
-          id="phoneNumber"
-          name="phoneNumber"
-          label="Phone Number"
-          type="number"
-          placeholder="input Phone Number"
-          required
-          errorMessage={error.phoneNumber}
-          onChange={(e) =>
-            setValue({ ...value, phoneNumber: e.currentTarget.value })
-          }
-        />
-        <Button
-          mt="20px"
-          w="full"
-          type="submit"
-          bg="monika-primary.500"
-          color="white"
-          fontWeight={600}
-          _hover={{ bg: "white", color: "monika-primary.500" }}
+    <Flex w="full" p="50px" justifyContent="space-around" alignItems="center">
+      <Flex
+        flexDir="column"
+        minW="500px"
+        gap="10px"
+        p="50px"
+        borderRadius="10px"
+        bg="white"
+        boxShadow="md"
+        m="50px"
+      >
+        <Text
+          color="monika-primary.500"
+          textAlign="center"
+          fontSize="30px"
+          fontWeight={700}
         >
-          LOGIN
-        </Button>
-      </form>
+          Monitoring KDO
+        </Text>
+
+        <form action="submit" onSubmit={(e) => handleRegister(e)}>
+          <InputField
+            id="email"
+            name="email"
+            label="Email"
+            type="email"
+            placeholder="input email"
+            required
+            onChange={(e) =>
+              setValue({ ...value, email: e.currentTarget.value })
+            }
+          />
+
+          <InputField
+            id="username"
+            name="username"
+            label="Username"
+            type="username"
+            placeholder="input username"
+            required
+            onChange={(e) =>
+              setValue({ ...value, username: e.currentTarget.value })
+            }
+          />
+          <InputField
+            id="password"
+            name="password"
+            label="Password"
+            type="password"
+            placeholder="input password"
+            errorMessage={error.password}
+            required
+            onChange={(e) =>
+              setValue({ ...value, password: e.currentTarget.value })
+            }
+          />
+          <InputField
+            id="phoneNumber"
+            name="phoneNumber"
+            label="Phone Number"
+            type="number"
+            placeholder="input Phone Number"
+            required
+            errorMessage={error.phoneNumber}
+            onChange={(e) =>
+              setValue({ ...value, phoneNumber: e.currentTarget.value })
+            }
+          />
+          <Divider borderColor="monika-primary.500" pt="10px" />
+          <Button
+            mt="20px"
+            w="full"
+            type="submit"
+            bg="monika-primary.500"
+            color="white"
+            fontWeight={600}
+            _hover={{ bg: "white", color: "monika-primary.500" }}
+          >
+            LOGIN
+          </Button>
+        </form>
+      </Flex>
+
+      {/* asset login */}
+      <Box>
+        <Image src="/login-asset.svg" alt="login-asset" w="600px" />
+      </Box>
     </Flex>
   );
 };
