@@ -22,7 +22,7 @@ interface InputFieldProps {
   placeholder?: string;
   label?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type: "text" | "password" | "email" | "number" | "date";
+  type: React.HTMLInputTypeAttribute;
   helperText?: string;
   rightElement?: React.ReactNode | JSX.Element;
   leftElement?: React.ReactNode | JSX.Element;
