@@ -36,7 +36,7 @@ import {
           <FormLabel>
             {props.label}{" "}
             {props.required && (
-              <Text color="wool-danger.500" fontWeight="600" as="span">
+              <Text color="monika-danger.500" fontWeight="600" as="span">
                 *
               </Text>
             )}
@@ -46,7 +46,7 @@ import {
           id={props.id}
           value={props.value}
           placeholder={props.placeholder}
-          bg="wool-light"
+          bg="monika-light"
           borderRadius="12px"
           size={props.size}
           disabled={props.disabled}
@@ -61,7 +61,7 @@ import {
           {props.children}
         </Select>
         {props.helperText && (
-          <FormHelperText color="wool-neutral.70">
+          <FormHelperText color="monika-neutral.70">
             {props.helperText}
           </FormHelperText>
         )}

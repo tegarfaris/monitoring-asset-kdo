@@ -13,34 +13,33 @@ export function middleware(request: NextRequest) {
   if (dataRegisterCookie) {
     const credential = JSON.parse(dataRegisterCookie.value);
     role = credential.role;
-
-    if (destination.startsWith("/dashboard/admin/asset-kdo") && role === "admin") {
+    
+    if (destination.startsWith("/dashboard/") && role === "admin") {
       return NextResponse.next();
     }
-    if (destination.startsWith("/dashboard/employee/form-pengajuan") && role === "employee") {
+    if (destination.startsWith("/dashboard/") && role === "user") {
       return NextResponse.next();
-    } else if (destination.startsWith("/auth") && role === "admin") {
-      return NextResponse.redirect(new URL("/dashboard/admin/asset-kdo", request.url));
-    } else if (
-      !dataRegisterCookie &&
-      destination.startsWith("/dashboard/admin/asset-kdo")
-    ) {
-      return NextResponse.redirect(new URL("/auth/register", request.url));
-    } else if (
-      !dataRegisterCookie &&
-      destination.startsWith("/auth/register")
-    ) {
-      // Default behavior if no conditions match
-      return NextResponse.next();
+    }
+    if (destination.startsWith("/auth")) {
+      if (role === "admin") {
+        return NextResponse.redirect(new URL("/dashboard/", request.url));
+      }
+      if (role === "user") {
+        return NextResponse.redirect(new URL("/dashboard/", request.url));
+      }
     }
   } else {
     if (destination.startsWith("/auth/register")) {
       return NextResponse.next();
-    } else if (destination.startsWith("/dashboard")) {
+    }
+    if (destination.startsWith("/dashboard")) {
       return NextResponse.redirect(new URL("/auth/register", request.url));
     }
     return NextResponse.redirect(new URL("/auth/register", request.url));
   }
+
+  // Default behavior if no conditions match
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more

@@ -4,9 +4,16 @@ import DashboardLayout from "../app/layout/dashboard-layout";
 import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../../themes/theme";
+import useNavigation from "../app/hooks/function/useNavigation";
+import GlobalProvider from "../app/context/global.context";
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: React.ReactNode) => page);
+
+    // Root Context
+    const rootContext = {
+      sidenav: useNavigation(),
+    };
 
   return getLayout(
     <>
@@ -17,6 +24,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       </Head>
 
       <ChakraProvider theme={theme}>
+        <GlobalProvider root={rootContext}>
+
         {Component.getLayout ? (
           <Component {...pageProps} />
         ) : (
@@ -24,6 +33,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             <Component {...pageProps} />
           </DashboardLayout>
         )}
+        </GlobalProvider>
       </ChakraProvider>
     </>
   );

@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 
-// var(--chakra-colors-wool-brand-light);
+// var(--chakra-colors-monika-brand-light);
 const colors = {
     "monika-primary": {
       200: "#B6F9C9",
@@ -120,13 +120,13 @@ const colors = {
     styles: {
       global: () => ({
         body: {
-          // backgroundColor: colors["wool-background"].light,
+          // backgroundColor: colors["monika-background"].light,
           backgroundColor: colors["monika-background-light"].primary,
           fontSize: {
             base: "12px",
             md: "14px",
           },
-          // color: colors["wool-neutral"].dark,
+          // color: colors["monika-neutral"].dark,
           color: colors["monika-neutral"][900],
         },
       }),

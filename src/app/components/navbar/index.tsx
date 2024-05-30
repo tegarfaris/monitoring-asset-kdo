@@ -1,9 +1,21 @@
-import { Avatar, Button, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Avatar,
+  Button,
+  Flex,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import React from "react";
 import { ERole, IAuthUser } from "../../interface/auth.interface";
 import { startCase } from "lodash";
+import { IoIosArrowDown, IoIosSettings } from "react-icons/io";
+import { NAVIGATION } from "../../config/navigation";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
@@ -41,17 +53,28 @@ const Navbar: React.FC = () => {
           <Text>{router.query.role as ERole}</Text>
         </Flex>
       </Flex>
-      <Button
-        variant="outlined"
-        onClick={logout}
-        fontWeight={600}
-        color="white"
-        bg="monika-primary.500"
-        _hover={{ bg: "monika-primary.200", color: "monika-primary.500" }}
-        boxShadow="lg"
-      >
-        Log out
-      </Button>
+
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label="Options"
+          icon={<IoIosArrowDown />}
+          variant="outline"
+        />
+        <MenuList>
+          <MenuItem onClick={() => router.push(NAVIGATION.dashboard.user.profile)}>
+            Profile
+          </MenuItem>
+          <MenuItem
+            onClick={logout}
+            fontWeight={600}
+            color="monika-primary.500"
+            _hover={{ bg: "monika-primary.200", color: "monika-primary.500" }}
+          >
+            Log out
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </Flex>
   );
 };

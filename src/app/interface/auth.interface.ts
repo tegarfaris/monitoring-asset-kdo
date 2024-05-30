@@ -1,10 +1,9 @@
 export enum ERole {
     ADMIN = "admin",
-    EMPLOYEE = "employee"
+    USER = "user"
 }
 
 export interface IAuthUser {
-    email: string;
     username: string;
     phoneNumber: string;
 }

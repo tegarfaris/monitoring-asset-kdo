@@ -1,11 +1,7 @@
-import { Inter } from "next/font/google";
 import { NextPageWithLayout } from "../app/interface/dashboard.interface";
-import DashboardPage from "../app/page-modules/dashboard-page";
-import DashboardLayout from "../app/layout/dashboard-layout";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import theme from "../../themes/theme";
 import { useRouter } from "next/router";
-import ComingSoon from "../app/page-modules/coming-soon";
 import Splash from "../app/components/splash";
 import React from "react";
 
@@ -18,7 +14,7 @@ const Dashboard: NextPageWithLayout = () => {
       if (router.asPath === "/") {
         router.replace(`/auth/register`);
       } else {
-        router.replace("/dashboard/asset-kdo");
+        router.replace("/dashboard/data-kendaraan");
       }
     }, 1000);
   }, [router]);

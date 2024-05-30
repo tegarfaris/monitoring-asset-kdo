@@ -1,39 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import InputField from "../../components/input-field";
 import { useRouter } from "next/navigation";
-import {
-  Box,
-  Button,
-  Checkbox,
-  Divider,
-  Flex,
-  Image,
-  Text,
-  Tooltip,
-} from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import { FormProvider, useForm } from "react-hook-form";
+import { NAVIGATION } from "../../config/navigation";
+import { RiEye2Line, RiEyeCloseFill } from "react-icons/ri";
 
 const Register = () => {
   const router = useRouter();
   const [dataLogin, setDataLogin] = React.useState({
-    email: "",
     username: "",
     password: "",
-    phoneNumber: "",
-    role: "",
   });
-
-  // get location permition
-  const [isLocationApproved, setLocationApproved] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const methods = useForm({
     values: {
-      email: dataLogin.email,
       username: dataLogin.username,
       password: dataLogin.password,
-      phoneNumber: dataLogin.phoneNumber,
-      role: dataLogin.role,
     },
   });
 
@@ -42,32 +26,17 @@ const Register = () => {
     formState: { errors },
   } = methods;
 
-  useEffect(() => {
-    if (isLocationApproved && "geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        function (position) {
-          setError(null);
-        },
-        function (error) {
-          setError(error.message);
-        }
-      );
-    }
-  }, [error, isLocationApproved]);
-
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const routeLogin =
-      watch("email") === "admin@admin.com" &&
-      watch("password") === "P@ssword123"
-        ? "/dashboard/admin/asset-kdo"
-        : "/dashboard/employee/form-pengajuan";
+      watch("username") === "admin" && watch("password") === "password"
+        ? NAVIGATION.dashboard.admin.dashboard
+        : NAVIGATION.dashboard.user.dashboard;
 
     const roleLogin =
-      watch("email") === "admin@admin.com" &&
-      watch("password") === "P@ssword123"
+      watch("username") === "admin" && watch("password") === "password"
         ? "admin"
-        : "employee";
+        : "user";
 
     const cookieName = "dataRegister";
     const cookieValue = JSON.stringify({ ...dataLogin, role: roleLogin });
@@ -95,32 +64,47 @@ const Register = () => {
         boxShadow="md"
         m="50px"
       >
-        <Text
-          color="monika-primary.500"
-          textAlign="center"
-          fontSize="30px"
-          fontWeight={700}
+        <Flex
           pb="20px"
+          flexDir="column"
+          justifyContent="center"
+          alignItems="center"
         >
-          Monitoring KDO
-        </Text>
+          <Flex gap="20px">
+            <Image
+              src="https://res.cloudinary.com/dg3gdr6le/image/upload/v1716907404/monitoring-kdo/logo%20garut/xkcpi0vfrtox4v00ta30.png"
+              alt="logo-garut"
+              w="full"
+              h="35px"
+              objectFit="contain"
+              bgColor="white"
+            />
+            <Divider orientation="vertical" h="30px" />
+            <Image
+              src="https://res.cloudinary.com/dg3gdr6le/image/upload/v1717080056/monitoring-kdo/uciotknuuerrsc7zehdf.png"
+              alt="asset-BPKAD"
+              w="full"
+              h="35px"
+              objectFit="contain"
+            />
+          </Flex>
+
+          <Text
+            color="monika-primary.500"
+            textAlign="center"
+            fontSize="60px"
+            fontWeight={700}
+          >
+            M O N I K A
+          </Text>
+          <Text mt="-10px" fontSize="12px" fontWeight={500}>
+            Monitoring Kendaraan Dinas Operasional
+          </Text>
+        </Flex>
 
         <FormProvider {...methods}>
           <form action="submit" onSubmit={(e) => handleRegister(e)}>
             <Flex flexDir="column" gap="10px">
-              <InputField
-                id="email"
-                name="email"
-                label="Email"
-                type="email"
-                placeholder="input email"
-                required
-                error={errors.username?.message}
-                onChange={(e) =>
-                  setDataLogin({ ...dataLogin, email: e.currentTarget.value })
-                }
-              />
-
               <InputField
                 id="username"
                 name="username"
@@ -138,82 +122,50 @@ const Register = () => {
               />
               <InputField
                 id="password"
-                name="password"
                 label="Password"
-                type="password"
-                placeholder="input password"
+                name="Password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                required={true}
                 error={errors.password?.message}
-                required
-                onChange={(e) =>
-                  setDataLogin({
-                    ...dataLogin,
-                    password: e.currentTarget.value,
-                  })
+                rightElement={
+                  showPassword ? (
+                    <RiEye2Line
+                      onClick={() => setShowPassword(!showPassword)}
+                      cursor={"pointer"}
+                    />
+                  ) : (
+                    <RiEyeCloseFill
+                      onClick={() => setShowPassword(!showPassword)}
+                      cursor={"pointer"}
+                    />
+                  )
                 }
               />
-              <InputField
-                id="phoneNumber"
-                name="phoneNumber"
-                label="Phone Number"
-                type="number"
-                placeholder="input Phone Number"
-                required
-                error={errors.phoneNumber?.message}
-                onChange={(e) =>
-                  setDataLogin({
-                    ...dataLogin,
-                    phoneNumber: e.currentTarget.value,
-                  })
-                }
-              />
-
-              <Checkbox
-                checked={isLocationApproved}
-                onChange={() => setLocationApproved(!isLocationApproved)}
-                size="sm"
-              >
-                Terms and Conditions
-              </Checkbox>
             </Flex>
             <Divider borderColor="monika-primary.500" pt="10px" />
-            <Tooltip
-              isDisabled={
-                !!isLocationApproved || error === "User denied Geolocation"
-                  ? false
-                  : true
-              }
-              hasArrow
-              label={
-                (!isLocationApproved &&
-                  "Anda Harus menekan kotak terms and condition terlebih dahulu") ||
-                (error === "User denied Geolocation" &&
-                  "Anda harus memilih Allow Every Time atau Izinkan Selalu pada pop up yang muncul untuk dapat masuk ke website ini")
-              }
+            <Button
+              mt="20px"
+              w="full"
+              type="submit"
+              bg="monika-primary.500"
+              color="white"
+              fontWeight={600}
+              _hover={{
+                bg: "white",
+                color: "monika-primary.500",
+                border: "1px solid",
+                borderColo: "monika-primary.500",
+              }}
             >
-              <Button
-                mt="20px"
-                w="full"
-                type="submit"
-                bg="monika-primary.500"
-                color="white"
-                fontWeight={600}
-                _hover={{
-                  bg: "white",
-                  color: "monika-primary.500",
-                  border: "1px solid",
-                  borderColo: "monika-primary.500",
-                }}
-                isDisabled={!isLocationApproved || error !== null}
-              >
-                LOGIN
-              </Button>
-            </Tooltip>
+              LOGIN
+            </Button>
           </form>
         </FormProvider>
       </Flex>
 
       {/* asset login */}
-      <Box>
+      <Box pos="relative">
         <Image src="/login-asset.svg" alt="login-asset" w="600px" />
       </Box>
     </Flex>

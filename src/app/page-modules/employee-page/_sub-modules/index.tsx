@@ -2,7 +2,7 @@ import { Divider, Flex, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import VehicleEmployeeForm from "../_components/VehicleEmployeeForm";
 
-const EmployeePage = () => {
+const UserPage = () => {
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -25,9 +25,6 @@ const EmployeePage = () => {
     }
   }, []); // Komponen hanya akan dimuat sekali saat komponen dimuat
 
-  console.log("latitude: ", latitude);
-  console.log("longitude: ", longitude);
-
   return (
     <Flex
       bg="white"
@@ -48,4 +45,4 @@ const EmployeePage = () => {
   );
 };
 
-export default EmployeePage;
+export default UserPage;
