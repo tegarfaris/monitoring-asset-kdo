@@ -1,14 +1,32 @@
 export enum EStatusKDO {
-    INUSE = "in-use",
-    INDICATE_TO_VIOLATION = "indicate to violation",
-    PARKED = "parked"
+  INUSE = "in-use",
+  PARKED = "parked",
 }
 
 export interface IAssetKDO {
-    id:string;
-    vehicleName: string;
-    tipe: "mobil" | "motor";
-    numberPlate: string;
-    status: EStatusKDO;
-    coordinates: {latitude: number, longitude: number}
+  id: string;
+  namaKendaraan: string;
+  tipe: "mobil" | "motor" | "ambulance" | "jeep" | "truk";
+  ccKendaraan: "";
+  tahunPerolehan: number | string;
+  kodeBarang: string;
+  nomorPabrik: string;
+  nomorRangka: string;
+  nomorMesin: string;
+  nomorBPKB: string;
+  caraPerolehan: "hibah" | "apbd" | "pertukaran" | "gabungan";
+  kondisiKendaraan: "BAIK" | "RUSAK RINGAN" | "RUSAK BERAT";
+  imageBuktiFisikLegal: string;
+  harga: string;
+  nomorPolisi: string;
+  status: EStatusKDO;
+  coordinates: { latitude: number; longitude: number };
+  asalSKPD:
+    | "BPKAD"
+    | "DINAS KESEHATAN"
+    | "DINAS SOSIAL"
+    | "BAPPEDA"
+    | "BAPENDA"
+    | "DINAS PENDIDIKAN";
+  nomorRegistrasi: string;
 }

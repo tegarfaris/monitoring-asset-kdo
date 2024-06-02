@@ -10,28 +10,30 @@ import {
 } from "@chakra-ui/react";
 import { PiPlusCircle } from "react-icons/pi";
 import usePagination from "@/monitoring/app/hooks/function/usePagination";
-import DATA_KDO from "@/monitoring/app/data/data-kdo.json";
+import DATA_ADMIN from "@/monitoring/app/data/data-admin.json";
 import BasicTable, {
   ITableColumns,
 } from "@/monitoring/app/components/basic-table";
-import { IAssetKDO } from "@/monitoring/app/interface/asset-kdo.interface";
-import { NAVIGATION } from "@/monitoring/app/config/navigation";
 import { useRouter } from "next/router";
 import { TfiExport } from "react-icons/tfi";
+import { IAdmin } from "@/monitoring/app/interface/data-admin.interface";
+import { startCase } from "lodash";
 
 const DataAdmin = () => {
   const router = useRouter();
-  const [showingData, setShowingData] = React.useState<number>(DATA_KDO.length);
+  const [showingData, setShowingData] = React.useState<number>(
+    DATA_ADMIN.length
+  );
   const { pageSize, currentPage, renderPageNumber } = usePagination({
     currentCount: showingData || 0,
-    totalCount: DATA_KDO.length || 0,
+    totalCount: DATA_ADMIN.length || 0,
     siblingCount: 1,
   });
 
-  const getPaginatedData = (): IAssetKDO[] => {
+  const getPaginatedData = (): IAdmin[] => {
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    return DATA_KDO.slice(startIndex, endIndex) as IAssetKDO[];
+    return DATA_ADMIN.slice(startIndex, endIndex) as IAdmin[];
   };
 
   React.useEffect(() => {
@@ -53,40 +55,40 @@ const DataAdmin = () => {
       key: "nomorIdentitasPegawai",
       title: "NIP",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAdmin) => {
+        return <Text>{data.nip}</Text>;
       },
     },
     {
       key: "name",
       title: "nama",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAdmin) => {
+        return <Text>{startCase(data.nama)}</Text>;
       },
     },
     {
       key: "nomorTelephone",
       title: "Nomor Telephone",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAdmin) => {
+        return <Text>{data.nomorTelephone}</Text>;
       },
     },
     {
       key: "jabatan",
       title: "Jabatan",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAdmin) => {
+        return <Text>{startCase(data.jabatan)}</Text>;
       },
     },
     {
       key: "username",
       title: "Username",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAdmin) => {
+        return <Text>{data.username}</Text>;
       },
     },
   ];

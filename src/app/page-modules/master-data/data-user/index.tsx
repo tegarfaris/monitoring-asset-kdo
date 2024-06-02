@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { PiPlusCircle } from "react-icons/pi";
 import usePagination from "@/monitoring/app/hooks/function/usePagination";
-import DATA_KDO from "@/monitoring/app/data/data-kdo.json";
+import DATAU_USER from "@/monitoring/app/data/data-user.json";
 import BasicTable, {
   ITableColumns,
 } from "@/monitoring/app/components/basic-table";
@@ -18,20 +18,24 @@ import { IAssetKDO } from "@/monitoring/app/interface/asset-kdo.interface";
 import { useRouter } from "next/router";
 import { NAVIGATION } from "@/monitoring/app/config/navigation";
 import { TfiExport } from "react-icons/tfi";
+import { IUser } from "@/monitoring/app/interface/data-user.interface";
+import { startCase } from "lodash";
 
 const DataUser = () => {
   const router = useRouter();
-  const [showingData, setShowingData] = React.useState<number>(DATA_KDO.length);
+  const [showingData, setShowingData] = React.useState<number>(
+    DATAU_USER.length
+  );
   const { pageSize, currentPage, renderPageNumber } = usePagination({
     currentCount: showingData || 0,
-    totalCount: DATA_KDO.length || 0,
+    totalCount: DATAU_USER.length || 0,
     siblingCount: 1,
   });
 
-  const getPaginatedData = (): IAssetKDO[] => {
+  const getPaginatedData = (): IUser[] => {
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    return DATA_KDO.slice(startIndex, endIndex) as IAssetKDO[];
+    return DATAU_USER.slice(startIndex, endIndex) as IUser[];
   };
 
   React.useEffect(() => {
@@ -50,43 +54,67 @@ const DataUser = () => {
       },
     },
     {
-      key: "nomorIdentitasPegawai",
+      key: "asalSKPD",
+      title: "Asal SKPD",
+      width: "5%",
+      render: (data: IUser) => {
+        return <Text textAlign="left">{data.asalSKPD}</Text>;
+      },
+    },
+    {
+      key: "nip",
       title: "NIP",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IUser) => {
+        return <Text>{data.nip}</Text>;
       },
     },
     {
       key: "name",
       title: "nama",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IUser) => {
+        return <Text>{startCase(data.nama)}</Text>;
       },
     },
     {
       key: "nomorTelephone",
       title: "Nomor Telephone",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IUser) => {
+        return <Text>{data.nomorTelephone}</Text>;
       },
     },
     {
       key: "jabatan",
       title: "Jabatan",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IUser) => {
+        return <Text>{data.jabatan}</Text>;
+      },
+    },
+    {
+      key: "email",
+      title: "Email",
+      capitalize: true,
+      render: (data: IUser) => {
+        return <Text>{data.email}</Text>;
       },
     },
     {
       key: "username",
       title: "Username",
       capitalize: true,
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IUser) => {
+        return <Text>{data.username}</Text>;
+      },
+    },
+    {
+      key: "alamat",
+      title: "Alamat",
+      capitalize: true,
+      render: (data: IUser) => {
+        return <Text>{data.alamat}</Text>;
       },
     },
   ];

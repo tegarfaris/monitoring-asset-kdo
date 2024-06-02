@@ -62,7 +62,14 @@ const Navbar: React.FC = () => {
           variant="outline"
         />
         <MenuList>
-          <MenuItem onClick={() => router.push(NAVIGATION.dashboard.user.profile)}>
+          <MenuItem
+            onClick={() =>
+              router.push(
+                NAVIGATION.dashboard[router?.query.role as "user" | "admin"]
+                  .profile
+              )
+            }
+          >
             Profile
           </MenuItem>
           <MenuItem

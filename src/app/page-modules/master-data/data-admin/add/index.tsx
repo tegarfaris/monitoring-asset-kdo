@@ -22,9 +22,7 @@ const FormAddAdmin = () => {
         p="10px"
         fontWeight={600}
         onClick={() =>
-          router.push(
-            `/dashboard/${router?.query.role}/master-data/data-admin`
-          )
+          router.push(`/dashboard/${router?.query.role}/master-data/data-admin`)
         }
         w="full"
       >
@@ -80,6 +78,13 @@ const FormAddAdmin = () => {
                 name="username"
                 label="Username"
                 type="text"
+                required
+              />
+              <InputField
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
                 required
               />
             </Flex>
