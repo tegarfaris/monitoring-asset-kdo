@@ -1,0 +1,53 @@
+[
+    {
+      "asalSKPD": "BPKAD",
+      "nip": "198501011234567890",
+      "nama": "Andi Prasetyo",
+      "nomorTelephone": "081234567890",
+      "jabatan": "Kepala BPKAD",
+      "email": "andi.prasetyo@bpkad.go.id",
+      "username": "andi.prasetyo",
+      "alamat": "Jl. Merdeka No. 1, Jakarta"
+    },
+    {
+      "asalSKPD": "DINAS KESEHATAN",
+      "nip": "198702021234567891",
+      "nama": "Siti Rahmawati",
+      "nomorTelephone": "081234567891",
+      "jabatan": "Staff",
+      "email": "siti.rahmawati@dinkes.go.id",
+      "username": "siti.rahmawati",
+      "alamat": "Jl. Kesehatan No. 2, Bandung"
+    },
+    {
+      "asalSKPD": "DINAS SOSIAL",
+      "nip": "198803031234567892",
+      "nama": "Budi Santoso",
+      "nomorTelephone": "081234567892",
+      "jabatan": "Kepala Seksi",
+      "email": "budi.santoso@dinsos.go.id",
+      "username": "budi.santoso",
+      "alamat": "Jl. Sosial No. 3, Surabaya"
+    },
+    {
+      "asalSKPD": "BAPPEDA",
+      "nip": "198904041234567893",
+      "nama": "Dewi Lestari",
+      "nomorTelephone": "081234567893",
+      "jabatan": "Analis Kebijakan",
+      "email": "dewi.lestari@bappeda.go.id",
+      "username": "dewi.lestari",
+      "alamat": "Jl. Pembangunan No. 4, Yogyakarta"
+    },
+    {
+      "asalSKPD": "BAPENDA",
+      "nip": "199005051234567894",
+      "nama": "Eko Wahyudi",
+      "nomorTelephone": "081234567894",
+      "jabatan": "Staf Pelaksana",
+      "email": "eko.wahyudi@bapenda.go.id",
+      "username": "eko.wahyudi",
+      "alamat": "Jl. Pajak No. 5, Medan"
+    }
+  ]
+  

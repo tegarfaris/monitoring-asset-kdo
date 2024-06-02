@@ -72,6 +72,16 @@ const FormAddUser = () => {
                 type="number"
                 required
               />
+              <Button
+                w="fit-content"
+                mt="20px"
+                variant="solid"
+                bg="monika-primary.500"
+                color="white"
+                fontFamily="Poppins"
+              >
+                Tambah Users
+              </Button>
             </Flex>
             <Flex w="full" flexDir="column" gap="20px">
               <InputField
@@ -95,6 +105,13 @@ const FormAddUser = () => {
                 type="text"
                 required
               />
+              <InputField
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                required
+              />
               <InputTextArea
                 id="alamat"
                 name="alamat"
@@ -103,15 +120,6 @@ const FormAddUser = () => {
               />
             </Flex>
           </Flex>
-          <Button
-            mt="20px"
-            variant="solid"
-            bg="monika-primary.500"
-            color="white"
-            fontFamily="Poppins"
-          >
-            Tambah Admin
-          </Button>
         </form>
       </Flex>
     </FormProvider>

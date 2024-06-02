@@ -28,7 +28,7 @@ import BasicTable, {
 import DATA_KDO from "../../../../../data/data-kdo.json";
 import usePagination from "../../../../../hooks/function/usePagination";
 import { IAssetKDO } from "../../../../../interface/asset-kdo.interface";
-import { startCase } from "lodash";
+import { startCase, upperCase } from "lodash";
 import { renderKDOStatus } from "../../../../../helper/renderKDOStatus";
 import { PiPlusCircle } from "react-icons/pi";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -37,6 +37,8 @@ import { MdEdit } from "react-icons/md";
 import AssetKDOHeader from "../../_components/asset-kdo-header";
 import { useRouter } from "next/router";
 import ImageWithPopup from "../../_components/image-with-pop-up";
+import { TfiExport } from "react-icons/tfi";
+import { formatRupiah } from "@/monitoring/app/helper/formatRupiah.helper";
 
 const images = [
   "https://awsimages.detik.net.id/community/media/visual/2017/10/30/25855a3e-636e-4142-a8bb-bf9d19671488_169.jpg?w=600&q=90",
@@ -44,19 +46,41 @@ const images = [
   "https://asset-3.tstatic.net/jualbeli/img/njajal/2019/1/Modal-SMS--Kalian-Sudah-Bisa-cek-Keaslian-Surat-Kendaraan-Motor-Bekas-master-1247237077.jpg",
 ];
 
+const normalizeString = (str: string) => str.replace(/\s+/g, "").toLowerCase();
+
 const Listkendaraan = () => {
   const router = useRouter();
   const [showingData, setShowingData] = React.useState<number>(DATA_KDO.length);
+  const [valueSearch, setValueSearch] = React.useState("");
+  const [debouncedSearch, setDebouncedSearch] = React.useState(valueSearch);
+
+  React.useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(valueSearch);
+    }, 300);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [valueSearch]);
+
+  const filteredBySearch = DATA_KDO.filter((a) =>
+    normalizeString(a.nomorPolisi).includes(normalizeString(debouncedSearch))
+  );
+
   const { pageSize, currentPage, renderPageNumber } = usePagination({
     currentCount: showingData || 0,
-    totalCount: DATA_KDO.length || 0,
+    totalCount:
+      debouncedSearch !== "" ? filteredBySearch.length : DATA_KDO.length || 0,
     siblingCount: 1,
   });
 
   const getPaginatedData = (): IAssetKDO[] => {
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    return DATA_KDO.slice(startIndex, endIndex) as IAssetKDO[];
+    return debouncedSearch !== ""
+      ? (filteredBySearch.slice(startIndex, endIndex) as IAssetKDO[])
+      : (DATA_KDO.slice(startIndex, endIndex) as IAssetKDO[]);
   };
 
   React.useEffect(() => {
@@ -85,24 +109,24 @@ const Listkendaraan = () => {
           ID Awal
         </Text>
       ),
-      render: () => {
-        return <Text>098098098</Text>;
+      render: (data: IAssetKDO) => {
+        return <Text>{data.kodeBarang}</Text>;
       },
     },
     {
       key: "nomorRegister",
       title: "Nomor Register",
       capitalize: true,
-      render: () => {
-        return <Text>aosdua0980</Text>;
+      render: (data: IAssetKDO) => {
+        return <Text>{data.nomorRegistrasi}</Text>;
       },
     },
     {
       key: "namaBarang",
       title: "Nama Barang",
       capitalize: true,
-      render: () => {
-        return <Text>aosdua0980</Text>;
+      render: (data: IAssetKDO) => {
+        return <Text>{startCase(data.namaKendaraan)}</Text>;
       },
     },
     {
@@ -124,7 +148,9 @@ const Listkendaraan = () => {
             <Text
               cursor="pointer"
               onClick={() =>
-                router.push(`/dashboard/${router?.query.role}/master-data/data-kendaraan/maps/${data.id}`)
+                router.push(
+                  `/dashboard/${router?.query.role}/master-data/data-kendaraan/maps/${data.id}`
+                )
               }
               textAlign="center"
               bg="monika-primary.500"
@@ -172,15 +198,15 @@ const Listkendaraan = () => {
       title: "Ukuran / CC",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.ccKendaraan)}</Text>;
       },
     },
     {
       key: "bahan",
       title: "Bahan",
       capitalize: true,
-      render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+      render: () => {
+        return <Text>Besi</Text>;
       },
     },
     {
@@ -188,7 +214,7 @@ const Listkendaraan = () => {
       title: "Tahun Perolehan",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.tahunPerolehan as string)}</Text>;
       },
     },
     {
@@ -196,7 +222,7 @@ const Listkendaraan = () => {
       title: "Nomor Pabrik",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.nomorPabrik)}</Text>;
       },
     },
     {
@@ -204,7 +230,7 @@ const Listkendaraan = () => {
       title: "Nomor Rangka",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.nomorRangka)}</Text>;
       },
     },
     {
@@ -212,7 +238,7 @@ const Listkendaraan = () => {
       title: "Nomor Mesin",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.nomorMesin)}</Text>;
       },
     },
     {
@@ -220,7 +246,7 @@ const Listkendaraan = () => {
       title: "Nomor Polisi",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text textAlign="center">{data.numberPlate}</Text>;
+        return <Text textAlign="center">{data.nomorPolisi}</Text>;
       },
     },
     {
@@ -228,7 +254,7 @@ const Listkendaraan = () => {
       title: "Nomor BPKB",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.nomorBPKB)}</Text>;
       },
     },
     {
@@ -236,7 +262,7 @@ const Listkendaraan = () => {
       title: "Cara Perolehan",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{upperCase(data.caraPerolehan)}</Text>;
       },
     },
     {
@@ -244,7 +270,7 @@ const Listkendaraan = () => {
       title: "Kondisi",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{startCase(data.kondisiKendaraan)}</Text>;
       },
     },
     {
@@ -252,15 +278,15 @@ const Listkendaraan = () => {
       title: "Harga",
       capitalize: true,
       render: (data: IAssetKDO) => {
-        return <Text>{startCase(data.vehicleName)}</Text>;
+        return <Text>{formatRupiah(data.harga)}</Text>;
       },
     },
     {
       key: "buktiFisikLegal",
       title: "Bukti Fisik Legal",
       capitalize: true,
-      render: (data: IAssetKDO) => {
-      return <ImageWithPopup images={images} />
+      render: () => {
+        return <ImageWithPopup images={images} />;
       },
     },
     {
@@ -287,7 +313,11 @@ const Listkendaraan = () => {
               >
                 Edit Data KDO
               </MenuItem>
-              <MenuItem icon={<FaTrash />} command="⌘⇧N">
+              <MenuItem
+                display={router?.query.role === "admin" ? "flex" : "none"}
+                icon={<FaTrash />}
+                command="⌘⇧N"
+              >
                 Hapus Data KDO
               </MenuItem>
             </MenuList>
@@ -306,7 +336,7 @@ const Listkendaraan = () => {
 
         <BreadcrumbItem isCurrentPage>
           <BreadcrumbLink href="#">
-            Asset Kendaraan Dinas Operasional
+            Aset Kendaraan Dinas Operasional
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
@@ -322,28 +352,39 @@ const Listkendaraan = () => {
       >
         <Flex w="full" justifyContent="space-between">
           <Text fontSize="24px" fontWeight={600} color="monika-primary.500">
-            List Asset Kendaraan Dinas Operasional
+            List Aset Kendaraan Dinas Operasional
           </Text>
-          <Button
-            display={router?.query.role === "admin" ? "none" : "flex"}
-            leftIcon={<PiPlusCircle size={20} />}
-            fontWeight={600}
-            variant="outline"
-            color="monika-primary.500"
-            borderColor=" monika-primary.500"
-            onClick={() =>
-              router.push(
-                `/dashboard/${router?.query.role}/master-data/data-kendaraan/add`
-              )
-            }
-          >
-            Add KDO
-          </Button>
+          <Flex gap="10px">
+            <Button
+              color="monika-primary.500"
+              variant="outline"
+              borderColor="monika-primary.500"
+              leftIcon={<TfiExport color="monika-primary.500" />}
+              _hover={{ bg: "monika-primary.500", color: "white" }}
+              fontWeight={600}
+            >
+              Export Data
+            </Button>
+            <Button
+              leftIcon={<PiPlusCircle size={20} />}
+              fontWeight={600}
+              variant="outline"
+              color="monika-primary.500"
+              borderColor=" monika-primary.500"
+              onClick={() =>
+                router.push(
+                  `/dashboard/${router?.query.role}/master-data/data-kendaraan/add`
+                )
+              }
+            >
+              Add KDO
+            </Button>
+          </Flex>
         </Flex>
         <Divider />
 
         {/* list asset kdo header */}
-        <AssetKDOHeader />
+        <AssetKDOHeader setValueSearch={setValueSearch} />
 
         <Flex flexDir="column" w="full" justifyContent="center" gap="20px">
           <BasicTable

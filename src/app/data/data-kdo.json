@@ -1,310 +1,218 @@
 [
   {
     "id": "1",
-    "vehicleName": "Toyota Corolla",
+    "namaKendaraan": "Toyota Avanza",
     "tipe": "mobil",
-    "numberPlate": "B 1234 ABC",
-    "status": "in-use",
+    "ccKendaraan": "1500",
+    "tahunPerolehan": 2019,
+    "nomorPabrik": "A12345",
+    "nomorRangka": "B12345",
+    "nomorMesin": "C12345",
+    "nomorBPKB": "D12345",
+    "caraPerolehan": "apbd",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image1.jpg",
+    "harga": "200000000",
+    "nomorPolisi": "B 1234 ABC",
+    "status": "parked",
     "coordinates": {
-      "latitude": -7.217884661667901,
-      "longitude":  107.90194069312462
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "BPKAD",
+    "nomorRegistrasi": "R12345",
+    "kodeBarang": "KB1234"
   },
   {
     "id": "2",
-    "vehicleName": "Honda Civic",
+    "namaKendaraan": "Honda Civic",
     "tipe": "mobil",
-    "numberPlate": "D 5678 DEF",
-    "status": "parked",
+    "ccKendaraan": "1800",
+    "tahunPerolehan": 2018,
+    "nomorPabrik": "A22345",
+    "nomorRangka": "B22345",
+    "nomorMesin": "C22345",
+    "nomorBPKB": "D22345",
+    "caraPerolehan": "hibah",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image2.jpg",
+    "harga": "300000000",
+    "nomorPolisi": "B 2345 CDE",
+    "status": "in-use",
     "coordinates": {
-      "latitude": -6.8648182,
-      "longitude": 107.5747238
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "DINAS KESEHATAN",
+    "nomorRegistrasi": "R22345",
+    "kodeBarang": "KB2234"
   },
   {
     "id": "3",
-    "vehicleName": "Yamaha NMAX",
-    "tipe": "motor",
-    "numberPlate": "L 9012 XYZ",
-    "status": "in-use",
+    "namaKendaraan": "Suzuki Ertiga",
+    "tipe": "mobil",
+    "ccKendaraan": "1400",
+    "tahunPerolehan": 2020,
+    "nomorPabrik": "A32345",
+    "nomorRangka": "B32345",
+    "nomorMesin": "C32345",
+    "nomorBPKB": "D32345",
+    "caraPerolehan": "gabungan",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image3.jpg",
+    "harga": "250000000",
+    "nomorPolisi": "B 3456 DEF",
+    "status": "parked",
     "coordinates": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "DINAS SOSIAL",
+    "nomorRegistrasi": "R32345",
+    "kodeBarang": "KB3234"
   },
   {
     "id": "4",
-    "vehicleName": "Suzuki Satria F150",
+    "namaKendaraan": "Yamaha NMax",
     "tipe": "motor",
-    "numberPlate": "Z 3456 UVW",
-    "status": "indicate to violation",
+    "ccKendaraan": "155",
+    "tahunPerolehan": 2021,
+    "nomorPabrik": "A42345",
+    "nomorRangka": "B42345",
+    "nomorMesin": "C42345",
+    "nomorBPKB": "D42345",
+    "caraPerolehan": "apbd",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image4.jpg",
+    "harga": "30000000",
+    "nomorPolisi": "B 4567 EFG",
+    "status": "in-use",
     "coordinates": {
-      "latitude": -33.8688,
-      "longitude": 151.2093
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "BAPPEDA",
+    "nomorRegistrasi": "R42345",
+    "kodeBarang": "KB4234"
   },
   {
     "id": "5",
-    "vehicleName": "Ford Mustang",
-    "tipe": "mobil",
-    "numberPlate": "E 7890 GHI",
+    "namaKendaraan": "Honda Beat",
+    "tipe": "motor",
+    "ccKendaraan": "110",
+    "tahunPerolehan": 2017,
+    "nomorPabrik": "A52345",
+    "nomorRangka": "B52345",
+    "nomorMesin": "C52345",
+    "nomorBPKB": "D52345",
+    "caraPerolehan": "pertukaran",
+    "kondisiKendaraan": "RUSAK RINGAN",
+    "imageBuktiFisikLegal": "image5.jpg",
+    "harga": "15000000",
+    "nomorPolisi": "B 5678 FGH",
     "status": "in-use",
     "coordinates": {
-      "latitude": 37.7749,
-      "longitude": -122.4194
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "BAPENDA",
+    "nomorRegistrasi": "R52345",
+    "kodeBarang": "KB5234"
   },
   {
     "id": "6",
-    "vehicleName": "Kawasaki Ninja 250",
-    "tipe": "motor",
-    "numberPlate": "Q 2345 JKL",
+    "namaKendaraan": "Isuzu Elf",
+    "tipe": "truk",
+    "ccKendaraan": "2800",
+    "tahunPerolehan": 2015,
+    "nomorPabrik": "A62345",
+    "nomorRangka": "B62345",
+    "nomorMesin": "C62345",
+    "nomorBPKB": "D62345",
+    "caraPerolehan": "hibah",
+    "kondisiKendaraan": "RUSAK BERAT",
+    "imageBuktiFisikLegal": "image6.jpg",
+    "harga": "400000000",
+    "nomorPolisi": "B 6789 GHI",
     "status": "parked",
     "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "DINAS PENDIDIKAN",
+    "nomorRegistrasi": "R62345",
+    "kodeBarang": "KB6234"
   },
   {
     "id": "7",
-    "vehicleName": "Chevrolet Camaro",
-    "tipe": "mobil",
-    "numberPlate": "A 6789 MNO",
-    "status": "indicate to violation",
+    "namaKendaraan": "Mitsubishi L300",
+    "tipe": "truk",
+    "ccKendaraan": "2500",
+    "tahunPerolehan": 2016,
+    "nomorPabrik": "A72345",
+    "nomorRangka": "B72345",
+    "nomorMesin": "C72345",
+    "nomorBPKB": "D72345",
+    "caraPerolehan": "apbd",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image7.jpg",
+    "harga": "350000000",
+    "nomorPolisi": "B 7890 HIJ",
+    "status": "parked",
     "coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.006
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "BPKAD",
+    "nomorRegistrasi": "R72345",
+    "kodeBarang": "KB7234"
   },
   {
     "id": "8",
-    "vehicleName": "Honda Beat",
-    "tipe": "motor",
-    "numberPlate": "H 1234 PQR",
+    "namaKendaraan": "Toyota Land Cruiser",
+    "tipe": "jeep",
+    "ccKendaraan": "4500",
+    "tahunPerolehan": 2022,
+    "nomorPabrik": "A82345",
+    "nomorRangka": "B82345",
+    "nomorMesin": "C82345",
+    "nomorBPKB": "D82345",
+    "caraPerolehan": "gabungan",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image8.jpg",
+    "harga": "1200000000",
+    "nomorPolisi": "B 8901 IJK",
     "status": "in-use",
     "coordinates": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "DINAS KESEHATAN",
+    "nomorRegistrasi": "R82345",
+    "kodeBarang": "KB8234"
   },
   {
     "id": "9",
-    "vehicleName": "Tesla Model S",
-    "tipe": "mobil",
-    "numberPlate": "F 5678 STU",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "10",
-    "vehicleName": "Harley Davidson Sportster",
-    "tipe": "motor",
-    "numberPlate": "W 9012 VWX",
+    "namaKendaraan": "Ford Ranger",
+    "tipe": "jeep",
+    "ccKendaraan": "3200",
+    "tahunPerolehan": 2019,
+    "nomorPabrik": "A92345",
+    "nomorRangka": "B92345",
+    "nomorMesin": "C92345",
+    "nomorBPKB": "D92345",
+    "caraPerolehan": "hibah",
+    "kondisiKendaraan": "BAIK",
+    "imageBuktiFisikLegal": "image9.jpg",
+    "harga": "1200000000",
+    "nomorPolisi": "B 8901 IJK",
     "status": "in-use",
     "coordinates": {
-      "latitude": 37.7749,
-      "longitude": -122.4194
-    }
-  },
-  {
-    "id": "11",
-    "vehicleName": "BMW 3 Series",
-    "tipe": "mobil",
-    "numberPlate": "B 3456 YZA",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.006
-    }
-  },
-  {
-    "id": "12",
-    "vehicleName": "Ducati Monster 821",
-    "tipe": "motor",
-    "numberPlate": "R 7890 BCW",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": -33.8688,
-      "longitude": 151.2093
-    }
-  },
-  {
-    "id": "13",
-    "vehicleName": "Audi A4",
-    "tipe": "mobil",
-    "numberPlate": "C 2345 DEF",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
-    }
-  },
-  {
-    "id": "14",
-    "vehicleName": "KTM Duke 390",
-    "tipe": "motor",
-    "numberPlate": "X 6789 GHI",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "15",
-    "vehicleName": "Mercedes-Benz E-Class",
-    "tipe": "mobil",
-    "numberPlate": "Z 1234 JKL",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": 37.7749,
-      "longitude": -122.4194
-    }
-  },
-  {
-    "id": "16",
-    "vehicleName": "Piaggio Vespa LX",
-    "tipe": "motor",
-    "numberPlate": "O 5678 MNO",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.006
-    }
-  },
-  {
-    "id": "17",
-    "vehicleName": "Volkswagen Golf",
-    "tipe": "mobil",
-    "numberPlate": "P 9012 PQR",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 51.5074,
-      "longitude": -0.1278
-    }
-  },
-  {
-    "id": "18",
-    "vehicleName": "Aprilia RSV4",
-    "tipe": "motor",
-    "numberPlate": "Y 3456 STU",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": -33.8688,
-      "longitude": 151.2093
-    }
-  },
-  {
-    "id": "19",
-    "vehicleName": "Subaru Impreza",
-    "tipe": "mobil",
-    "numberPlate": "D 7890 VWX",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "20",
-    "vehicleName": "Triumph Bonneville T100",
-    "tipe": "motor",
-    "numberPlate": "A 2345 XYZ",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "21",
-    "vehicleName": "Ferrari 488 GTB",
-    "tipe": "mobil",
-    "numberPlate": "F 6789 ABC",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "22",
-    "vehicleName": "Daihatsu Terios",
-    "tipe": "mobil",
-    "numberPlate": "E 1234 DEF",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "23",
-    "vehicleName": "Kawasaki Z900",
-    "tipe": "motor",
-    "numberPlate": "T 5678 GHI",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "24",
-    "vehicleName": "Mitsubishi Pajero Sport",
-    "tipe": "mobil",
-    "numberPlate": "H 9012 JKL",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "25",
-    "vehicleName": "BMW S1000RR",
-    "tipe": "motor",
-    "numberPlate": "N 2345 MNO",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "26",
-    "vehicleName": "Jeep Wrangler",
-    "tipe": "mobil",
-    "numberPlate": "I 6789 PQR",
-    "status": "parked",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "27",
-    "vehicleName": "Ducati Panigale V4",
-    "tipe": "motor",
-    "numberPlate": "V 1234 STU",
-    "status": "indicate to violation",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
-  },
-  {
-    "id": "28",
-    "vehicleName": "Nissan X-Trail",
-    "tipe": "mobil",
-    "numberPlate": "J 5678 VWX",
-    "status": "in-use",
-    "coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
-    }
+      "latitude": -6.21462,
+      "longitude": 106.84513
+    },
+    "asalSKPD": "DINAS KESEHATAN",
+    "nomorRegistrasi": "R82345",
+    "kodeBarang": "KB8234"
   }
 ]

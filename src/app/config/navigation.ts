@@ -4,20 +4,21 @@ export const NAVIGATION = {
   },
   dashboard: {
     admin: {
+      profile: "/dashboard/admin/profile",
       dashboard: "/dashboard/admin",
       "master-data": {
         "data-kendaraan": {
           list: "/dashboard/admin/master-data/data-kendaraan",
-          add: "/dashboard/admin/master-data/data-kendaraan/add"
+          add: "/dashboard/admin/master-data/data-kendaraan/add",
         },
         "data-user": {
           list: "/dashboard/admin/master-data/data-user",
-          add: "/dashboard/admin/master-data/data-user/add"
+          add: "/dashboard/admin/master-data/data-user/add",
         },
         "data-admin": {
           list: "/dashboard/admin/master-data/data-admin",
-          add: "/dashboard/admin/master-data/data-admin/add"
-        }
+          add: "/dashboard/admin/master-data/data-admin/add",
+        },
       },
     },
     user: {
@@ -26,12 +27,12 @@ export const NAVIGATION = {
       "master-data": {
         "data-kendaraan": {
           list: "/dashboard/user/master-data/data-kendaraan",
-          add: "/dashboard/user/master-data/data-kendaraan/add"
+          add: "/dashboard/user/master-data/data-kendaraan/add",
         },
         "data-user": {
           list: "dashboard/user/master-data/data-user",
-          add: "/dashboard/user/master-data/data-user/add"
-        }
+          add: "/dashboard/user/master-data/data-user/add",
+        },
       },
     },
   },
